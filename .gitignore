@@ -1,3 +1,6 @@
 .DS_Store
 yarn.lock
 node_modules
+gh-pages
+gh-pages.pub
+public

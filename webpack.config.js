@@ -9,7 +9,7 @@ module.exports = {
   watch: process.env.WEBPACK_WATCH === 'true',
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './public-vue'),
+    path: path.resolve(__dirname, './public'),
     publicPath: '',
     filename: 'build.js'
   },
