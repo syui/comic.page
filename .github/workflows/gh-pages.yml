@@ -7,14 +7,15 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 12
-        ref: src
+        node-version: 16
+        ref: main
         submodules: true
+        fetch-depth: 0
     - run: yarn install
 
     - name: Build
@@ -22,11 +23,11 @@ jobs:
         TZ: "Asia/Tokyo"
       run: |
            yarn build
-           cp -rf ./img ./public
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./public
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        user_name: 'ai[bot]'
+        user_email: '138105980+yui-syui-ai[bot]@users.noreply.github.com'
