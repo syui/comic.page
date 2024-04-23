@@ -1,7 +1,3 @@
-# sample-vue-project
-
-![](./vue-sample-manga-page-slide-0.gif)
-
 ## Project setup
 ```
 yarn install
